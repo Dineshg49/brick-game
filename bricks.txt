@@ -1,0 +1,13 @@
+
+
+
+        X           X           X           X       0 
+
+
+
+        A           X           A       A           X
+
+
+        X           A           0                   A
+        X X X X X X X X X X X X X X X X X X X X X X X X
+        
