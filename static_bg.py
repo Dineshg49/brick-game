@@ -5,7 +5,7 @@ import time
 
 class static_bg:
     def __init__(self):
-        self._lives = 2
+        self._lives = 3
         self._score = 0
         self._start = int(time.time())
         self._cn = 0

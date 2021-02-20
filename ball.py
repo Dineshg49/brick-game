@@ -77,7 +77,7 @@ class ball:
         else:
             chec = ball_and_brick.chec(self,x)
             if chec == True:
-                val = random.randint(0,0)
+                val = random.randint(0,4)
                 if val == 0 :
                     p = powerup(self._x,self._y)
                     self._power.append(p)
