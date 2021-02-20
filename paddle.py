@@ -1,12 +1,4 @@
 from colorama import Fore, Back, Style
-import numpy as np
-import time
-import os
-import signal
-import tty
-import sys
-import termios
-import random
 from global_var import *
 from input import *
 from collisons import *
@@ -14,6 +6,9 @@ from collisons import *
 
 class paddle:
     def __init__(self,x):
+        self._stick = 0
+        self._size = 7
+        self._balls = []
         with open('paddle.txt' , 'rb') as f:
            arr = []
            for line in f:
@@ -25,9 +20,9 @@ class paddle:
 
         for row in range(len(arr)):
             curr_col = self._co
-            for col in range(1,cols):
+            for col in range(1,cols-1):
                  x._grid[curr_row][col] =  Fore.BLACK + ' '
-            for col in range(len(arr[row])-1):
+            for col in range(self._size):
                 x._grid[curr_row][curr_col] =  Fore.YELLOW + chr(arr[row][col])
                 curr_col +=1
             curr_row +=1
@@ -42,10 +37,10 @@ class paddle:
         curr_row = rows - 3
         val = input_to(Get()) 
         if val == 'a' :
-            if self._co != 1 :
+            if self._co != 2 :
                 self._co -=1
         elif val == 'd':
-            if self._co != cols-8 :
+            if self._co != cols-self._size -2  :
                 self._co +=1
         elif val == 's' :
             return False
@@ -59,7 +54,7 @@ class paddle:
             curr_col = self._co
             for col in range(1,cols-1):
                  x._grid[curr_row][col] =  Fore.BLACK + ' '
-            for col in range(len(arr[row])-1):
+            for col in range(self._size):
                 x._grid[curr_row][curr_col] =  Fore.YELLOW + chr(arr[row][col])
                 curr_col +=1
             curr_row +=1
@@ -87,7 +82,7 @@ class paddle:
             curr_col = self._co
             for col in range(1,cols-1):
                  x._grid[curr_row][col] =  Fore.BLACK + ' '
-            for col in range(len(arr[row])-1):
+            for col in range(self._size):
                 x._grid[curr_row][curr_col] =  Fore.YELLOW + chr(arr[row][col])
                 curr_col +=1
             curr_row +=1

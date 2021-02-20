@@ -1,11 +1,4 @@
 from colorama import Fore, Back, Style
-import numpy as np
-import time
-import os
-import signal
-import tty
-import sys
-import termios
 import random
 from global_var import *
 from input import *

@@ -1,12 +1,4 @@
-import random
-from colorama import Fore, Back, Style
-import numpy as np
 import time
-import os
-import signal
-import tty
-import sys
-import termios
 from global_var import *
 from static_bg import static_bg
 from input import *
@@ -26,18 +18,16 @@ class Initial:
         static_bg.print_grid(x)
         chec = True
         while x._lives > 0:
+            
             while(chec):
               chec = pad.imove(x,bal)
               static_bg.print_grid(x)
 
             pad.move(x)
             over = ball.move(bal,x,pad)
-            if bal._pow > 0 :
-              bal._pow -=1
-              p = powerup(bal._x,bal._y)
-              x._cn +=1
-            if x._cn > 0:
-              powerup.move(p,x)
+            for i in bal._power:
+              powerup.move(i,x,pad,bal)
+              powerup.end(i,x,pad,bal)
             static_bg.print_grid(x)
             pad.move(x)
             if over == False:

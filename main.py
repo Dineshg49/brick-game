@@ -1,7 +1,5 @@
 from initial import Initial
-import tty
-import sys
-import termios
+
 
 game = Initial()
 

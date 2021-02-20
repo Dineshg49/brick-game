@@ -1,12 +1,4 @@
 from colorama import Fore, Back, Style
-import numpy as np
-import time
-import os
-import signal
-import tty
-import sys
-import termios
-import random
 from global_var import *
 from input import *
 from collisons import *
@@ -34,6 +26,8 @@ class bricks:
                     brick3.create(x,curr_row,curr_col)
                 elif ch == 'U':
                     brick4.create(x,curr_row,curr_col)
+                elif ch == 'L':
+                    brick5.create(x,curr_row,curr_col)
                 curr_col +=1
             curr_row +=1
     
@@ -51,4 +45,8 @@ class brick3(bricks):
 
 class brick4(bricks):
     def create(x,curr_row,curr_col):
-        x._grid[curr_row][curr_col] =  Fore.GREEN + 'A'
+        x._grid[curr_row][curr_col] =  Fore.LIGHTCYAN_EX + 'U'
+
+class brick5(bricks):
+    def create(x,curr_row,curr_col):
+        x._grid[curr_row][curr_col] = Fore.CYAN + 'L'

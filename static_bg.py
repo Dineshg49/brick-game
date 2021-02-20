@@ -1,12 +1,6 @@
 from colorama import Fore, Back, Style
-import numpy as np
-import time
-import os
-import signal
-import tty
-import sys
-import termios
 from global_var import *
+import time
 
 
 class static_bg:
